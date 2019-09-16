@@ -1,5 +1,5 @@
 Web Page Layout
-![](images/web.jpeg)
+![](images/web.png)
 
 Mobile Screen Layout
 ![](images/phone.jpeg)

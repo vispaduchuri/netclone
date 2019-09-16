@@ -1,4 +1,7 @@
+Web Page Layout
+![](images/web.jpeg)
 
+Mobile Screen Layout
 ![](images/phone.jpeg)
 
 

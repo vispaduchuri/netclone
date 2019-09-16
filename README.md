@@ -1,4 +1,5 @@
-Web Page Layout
+Web Page Layout:
+Hover over a Tv show card to display the name
 ![](images/web.png)
 
 Modal :

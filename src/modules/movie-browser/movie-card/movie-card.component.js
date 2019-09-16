@@ -2,21 +2,16 @@ import React from 'react';
 import {Card, CardTitle, CardMedia} from 'material-ui';
 import {connect} from 'react-redux';
 import {openMovieModal} from '../movie-modal/movie-modal.actions';
+import { Link } from 'react-router-dom'
+// import Secondscreen from '../../common/secondscreen';
 
 
 const styles = {
-  cardTitle: {
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    overflow: 'hidden'
-  },
   cardMedia: {
-    maxHeight: 390,
     overflow: 'hidden'
   },
   card: {
     cursor: 'pointer',
-    height: 390,
     overflow: 'hidden'
   },
   bgImage: {
@@ -40,21 +35,22 @@ class MovieCardComponent extends React.Component {
    
   
     const submovie = this.state.isMouseOver ? movie.name : null;
+    
 
     return (
       <Card
         style={styles.card}
         onMouseOver={() => this.setState({isMouseOver: true})}
         onMouseLeave={() => this.setState({isMouseOver: false})}
-        // onClick= {() => window.open('/secondscreen','_blank')}
+        
         onClick= {() => openMovieModal(movie.id)}
       >
-        {/* <CardTitle title={<div style={styles.cardTitle}>{movie.title}</div>} /> */}
         <CardMedia
           style={styles.cardMedia}
           overlay={
             <CardTitle
-              title={submovie} 
+              title={submovie}
+              
             />
           }
         >

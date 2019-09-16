@@ -6,18 +6,16 @@ export const keys = {
   'GET_MOVIE_DETAILS': 'GET_MOVIE_DETAILS',
 };
 
-console.log(movieService);
 
 
-
-export const getTopMovies = (page) => createAsyncActionCreator(
+export const getTvShows = (page) => createAsyncActionCreator(
     keys.GET_TOP_MOVIES,
-    movieService.getTopMovies, 
+    movieService.getTvShows, 
     {page}
   );
 
-export const getMovieDetails = (movieId) => createAsyncActionCreator(
+export const getTvDetails = (movieId) => createAsyncActionCreator(
   keys.GET_MOVIE_DETAILS,
-  movieService.getMovieDetails, 
+  movieService.getTvDetails, 
   {movieId}
 );

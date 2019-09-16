@@ -8,15 +8,17 @@ import LoaderComponent from '../../common/loader.component';
 
 const styles = {
   movieColumn: {
-    marginBottom: 0
+    marginBottom: '10px'
   }
 }
 const MovieListComponent = ({movies, isLoading}) => {
     
-  const movieColumns = movies ? movies.map(movie => (
+  const tvColumns = movies ? movies.map(movie => (
    
-    <Col style={styles.movieColumn} key={movie.id} xs={12} sm={3} md={3} lg={3}>
+    <Col style={styles.movieColumn} key={movie.id} xs={12} sm={16} md={3} lg={3}>
+      
       <MovieCard movie={movie} />
+      
     </Col>
     
 
@@ -24,11 +26,10 @@ const MovieListComponent = ({movies, isLoading}) => {
   
   
   
-  return (
-    console.log(movieColumns),
-    
+  return ( 
     <Row>
-      {movieColumns}  
+      {tvColumns} 
+     
       <LoaderComponent isLoading={isLoading} />
     </Row>       
   );

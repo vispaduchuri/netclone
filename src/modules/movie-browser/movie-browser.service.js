@@ -1,9 +1,9 @@
-const MOVIE_DB_API_KEY = 'e23bec2a2e96aa2a03f7e2c8c1e7e83d';
-const MOVIE_DB_BASE_URL = 'https://api.themoviedb.org/3';
+const TV_DB_API_KEY = 'e23bec2a2e96aa2a03f7e2c8c1e7e83d';
+const TV_DB_BASE_URL = 'https://api.themoviedb.org/3';
 
 
-const createMovieDbUrl = (relativeUrl, queryParams) => {
-    let baseUrl = `${MOVIE_DB_BASE_URL}${relativeUrl}?api_key=${MOVIE_DB_API_KEY}&language=in&query=tvf&page=1`;
+const createtvDbUrl = (relativeUrl, queryParams) => {
+    let baseUrl = `${TV_DB_BASE_URL}${relativeUrl}?api_key=${TV_DB_API_KEY}&language=in&query=tvf&page=1`;
     if (queryParams) {
       Object.keys(queryParams)
         .forEach(paramName => baseUrl += `&${paramName}=${queryParams[paramName]}`);
@@ -11,16 +11,16 @@ const createMovieDbUrl = (relativeUrl, queryParams) => {
     return baseUrl;
   }
   
-  export const getTopMovies = async ({page}) => {
-    const fullUrl = createMovieDbUrl('/search/tv', {
+  export const getTvShows = async ({page}) => {
+    const fullUrl = createtvDbUrl('/search/tv', {
       page
     });
     return fetch(fullUrl);
   }
   
   
-  export const getMovieDetails = async ({movieId}) => {
-    const fullUrl = createMovieDbUrl(`/tv/${movieId}`);
+  export const getTvDetails = async ({movieId}) => {
+    const fullUrl = createtvDbUrl(`/tv/${movieId}`);
     return fetch(fullUrl);
   }
 

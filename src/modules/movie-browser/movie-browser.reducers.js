@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import { createReducer, createAsyncReducer } from '../common/redux.helpers';
+import {  createAsyncReducer } from '../common/redux.helpers';
 import { keys as movieActionKeys } from './movie-browser.actions';
 import movieModalReducer from './movie-modal/movie-modal.reducer';
 
 const moviesSuccessReducer = (state, action) => {
-  const existingMovies = state.response ? state.response.results : [];
+  const existingTv = state.response ? state.response.results : [];
   
   return {
     ...state,
@@ -12,7 +12,7 @@ const moviesSuccessReducer = (state, action) => {
     response: {
       ...action.response,
       results: [
-        ...existingMovies,
+        ...existingTv,
         ...action.response.results
       ]
     }

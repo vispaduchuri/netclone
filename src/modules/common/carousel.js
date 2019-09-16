@@ -18,20 +18,19 @@ class Carousel extends Component {
         </div>
         <div className="carousel-content">
           <ItemsCarousel
-            // Placeholder configurations
+            
             enablePlaceholder
             numberOfPlaceholderItems={5}
             minimumPlaceholderTime={1000}
             placeholderItem={<div style={{ height: 250, background: '#202020' }}></div>}
 
-            // Carousel configurations
             numberOfCards={4}
             gutter={12}
             showSlither={true}
             firstAndLastGutter={true}
             freeScrolling={false}
 
-            // Active item configurations
+           
             requestToChangeActive={this.changeActiveItem}
             activeItemIndex={this.state.activeItemIndex}
             activePosition={'center'}

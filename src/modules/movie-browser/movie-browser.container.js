@@ -1,6 +1,5 @@
 import React from 'react';
-import {Container, Row, Carousel} from 'react-bootstrap';
-import {AppBar} from 'material-ui';
+import {Container, Row, } from 'react-bootstrap';
 import {connect} from 'react-redux';
 import * as movieActions from './movie-browser.actions';
 import * as movieHelpers from './movie-browser.helpers';
@@ -8,21 +7,19 @@ import MovieList from './movie-list/movie-list.component';
 import MovieModal from './movie-modal/movie-modal.container';
 import * as scrollHelpers from '../common/scroll.helpers';
 
+
 const styles = {
-    AppBar:{
-        background : 'black',
-        padding : '5px',
-    },
+    padding: '27px',
+    background : '#101010',
+    
+     
     list : {
-        color: 'black',
+        color: 'white',
         fontWeight: 'normal',
-        fontSize:'24px' 
+        fontSize:'21px' 
 
     }
 };
-
-
-
 class MovieBrowser extends React.Component {
 
     constructor(props) {
@@ -35,7 +32,7 @@ class MovieBrowser extends React.Component {
 
   componentDidMount() {
     window.onscroll = this.handleScroll;
-    this.props.getTopMovies(this.state.currentPage);
+    this.props.getTvShows(this.state.currentPage);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -47,7 +44,7 @@ class MovieBrowser extends React.Component {
       let percentageScrolled = scrollHelpers.getScrollDownPercentage(window);
       if (percentageScrolled > .8) {
         const nextPage = this.state.currentPage + 1;
-        this.props.getTopMovies(nextPage);
+        this.props.getTvShows(nextPage);
         this.setState({currentPage: nextPage});
       }
     }
@@ -55,16 +52,16 @@ class MovieBrowser extends React.Component {
   render() {
      
     const {topMovies} = this.props;
-    const movies = movieHelpers.getMoviesList(topMovies.response);
+    const movies = movieHelpers.getTvDetails(topMovies.response);
 
     return (
         
       <div style={styles}>
-        <AppBar title='TVFPLAY' style={styles.AppBar} />
+        
         <Container style={styles}>
           <Row>
               <h1 style={styles.list}>New Releases</h1>
-             <MovieList movies={movies} isLoading={topMovies.isLoading} />   
+             <MovieList movies={movies}/>   
           </Row>
         </Container>
         <MovieModal />  
